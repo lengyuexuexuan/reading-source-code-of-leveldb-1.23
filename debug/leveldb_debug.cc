@@ -48,7 +48,7 @@ int main(){
   options.create_if_missing = true;
   options.filter_policy = leveldb::NewBloomFilterPolicy(10);
 
-  leveldb::Status status = leveldb::DB::Open(options,"/Users/smartkeyerror/leveldb", &db);
+  leveldb::Status status = leveldb::DB::Open(options,"../tmp/leveldb", &db);
 
   leveldb::WriteOptions writeOptions;
   writeOptions.sync = true;
@@ -65,6 +65,5 @@ int main(){
   for (auto& t : threads) {
     t.join();
   }
-
   return 0;
 }
